@@ -5,17 +5,17 @@ def clone():
 
     os.system("chmod +x ./Website/gradlew")
 
-    os.system("./Website/gradlew build")
+    os.system("cd Website && ./gradlew build")
 
-    os.system("java -jar /Website/build/libs/$(ls /Website/build/libs)")
+    os.system("java -jar Website/build/libs/$(ls Website/build/libs)")
 
 def pull():
     os.system("git pull")
 
-    os.system("rm /Website/build/libs/$(ls /Website/build/libs)")
+    os.system("rm /build/libs/$(ls /build/libs)")
 
-    os.system("./Website/gradlew build")
+    os.system("./gradlew build")
 
-    os.system("java -jar /Website/build/libs/$(ls /Website/build/libs)")
+    os.system("java -jar Website/build/libs/$(ls Website/build/libs)")
 
 pull()

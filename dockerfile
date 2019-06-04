@@ -20,10 +20,13 @@ rm -r /root/.cache
 
 ENV JAVA_HOME="/usr/lib/jvm/java-1.8-openjdk"
 
+RUN apk add git
+
 EXPOSE 8080
 
 COPY . /home/project
 
 WORKDIR /home/project
 
-RUN apk add git
+
+ENTRYPOINT [ "python3","checkforupdate.py" ]
